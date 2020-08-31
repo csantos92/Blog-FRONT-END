@@ -1,6 +1,14 @@
 # BlogAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.3.
+Blog front-end made with Angular
+
+## Preview & Back-end
+
+![alt text](https://i.ibb.co/BLqZWzy/blog-angular.png)
+
+## Back-end
+
+https://github.com/csantos92/Blog-BACK-END
 
 ## Development server
 
