@@ -2,7 +2,7 @@
 
 Blog front-end made with Angular
 
-## Preview & Back-end
+## Preview
 
 ![alt text](https://i.ibb.co/BLqZWzy/blog-angular.png)
 
