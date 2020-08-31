@@ -1,4 +1,4 @@
-# BlogAngular
+# Blog-FRONT-END
 
 Blog front-end made with Angular
 
