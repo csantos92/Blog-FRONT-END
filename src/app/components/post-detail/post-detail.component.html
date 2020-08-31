@@ -1,0 +1,16 @@
+<!--Loading message-->
+<div class="col-md-12" *ngIf="!post">
+    Cargando...
+</div>
+
+<div class="col-md-12 mt-3" *ngIf="post">
+    <!--Page title-->
+    <h1>{{ post.title }}</h1>
+    <!--Post data-->
+    <p>
+        {{ post.category.name }} - <a [routerLink]="['/profile/', post.user_id]" >{{ post.user.name + ' ' + post.user.surname }}</a>
+    </p>
+    <hr>
+
+    <p [innerHtml]="post.content"></p>
+</div>

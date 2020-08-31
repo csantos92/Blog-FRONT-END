@@ -1,0 +1,64 @@
+<div class="col-md-12 mt-3">
+    <!--Page title-->
+    <h1>{{ page_title }}</h1>
+
+    <hr>
+
+    <!--Alert messages-->
+    <div class="alert alert-success" *ngIf="status == 'success'">
+        La entrada se ha editado correctamente
+    </div>
+
+    <div class="alert alert-danger" *ngIf="status == 'error'">
+        La entrada no se ha podido crear
+    </div>
+
+    <!--Create entry form-->
+    <form class="col-md-5 ml-0 pl-0" #postNew="ngForm" (ngSubmit)="onSubmit(postNew)">
+
+        <div class="form-group">
+            <label for="name">Título</label>
+            <input type="text" name="title" class="form-control" #title="ngModel" [(ngModel)]="post.title" required/>
+
+            <small *ngIf="!title.valid && title.touched" class="invalid-feedback d-block">
+                El título no es válido
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="content">Contenido</label>
+            <textarea [froalaEditor] name="content" #content="ngModel" [(ngModel)]="post.content" required></textarea>
+
+            <small *ngIf="!content.valid && content.touched" class="invalid-feedback d-block">
+                El contenido no es válido
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="category_id">Categoría</label>
+            <select name="category_id" class="form-control" #category="ngModel" [(ngModel)]="post.category_id">
+                <option *ngFor="let category of categories" value="{{ category.id }}">
+                    {{ category.name }}
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="image">Imagen</label>
+
+            <div *ngIf="post.image">
+                <img id="avatar" src="{{ url + 'post/image/' + post.image }}" alt="{{ post.image }}'s image">
+            </div>
+
+            <angular-file-uploader 
+                [config]="afuConfig"
+                (ApiResponse)="imageUpload($event)">
+            </angular-file-uploader>
+        </div>
+
+        <input type="submit" value="Guardar" class="btn btn-success" [disabled]="postNew.invalid"/>
+
+    </form>
+
+
+</div>

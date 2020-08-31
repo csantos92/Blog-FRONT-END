@@ -1,0 +1,39 @@
+<!--Component that shows posts cards-->
+<div class="card-columns">
+    <article class="card w-100" *ngFor="let post of posts">
+
+        <!--Post title-->
+        <div class="card-header">
+            <h3>
+                <a [routerLink]="['/entry', post.id]">{{ post.title }}</a>
+            </h3>
+        </div>
+
+        <!--Post data-->
+        <div class="card-body">
+            <div class="post-image w-100" *ngIf="post.image">
+                <img src="{{ url + 'post/image/' + post.image }}" class="w-100" />
+            </div>
+
+            <div class="post-image w-100" *ngIf="!post.image">
+                <img src="https://via.placeholder.com/200x170" class="w-100" />
+            </div>
+
+            <!--Action buttons-->
+            <div class="post-buttons mt-3">
+
+                <span *ngIf="!identity || (identity && identity.sub != post.user_id)" class="button">
+                    <a [routerLink]="['/entry', post.id]" class="btn btn-sm btn-success mr-2">Leer</a>
+                </span>
+
+                <span *ngIf="identity && identity.sub == post.user_id" class="buttons">
+                    <a [routerLink]="['/entry', post.id]" class="btn btn-sm btn-success mr-2">Leer</a>
+                    <a [routerLink]="['/edit', post.id]" class="btn btn-sm btn-warning mr-2">Editar</a>
+                    <a (click)="deletePost(post.id)" class="btn btn-sm btn-danger">Borrar</a>
+                </span>
+
+            </div>
+        </div>
+
+    </article>
+</div>
