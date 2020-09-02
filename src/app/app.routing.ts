@@ -15,6 +15,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 
 import { IdentityGuard } from './services/identity.guard';
 
+//App routes
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'home', component: HomeComponent},
