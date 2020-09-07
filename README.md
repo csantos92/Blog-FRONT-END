@@ -1,6 +1,6 @@
-# Blog-FRONT-END
+# Blog Front-End
 
-Blog front-end made with Angular
+Blog front-end made with Angular 10
 
 ## Preview
 
@@ -8,7 +8,7 @@ Blog front-end made with Angular
 
 ## Back-end
 
-https://github.com/csantos92/Blog-BACK-END
+https://github.com/csantos92/blog-back-end
 
 ## Development server
 
